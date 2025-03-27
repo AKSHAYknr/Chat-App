@@ -1,5 +1,6 @@
 package com.akshay.chat_app.message;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.annotations.Parameter;
 import org.springframework.http.HttpStatus;

@@ -18,6 +18,6 @@ public class UserController {
 
     @GetMapping
     public ResponseEntity<List<UserResponse>> getAllUsers(Authentication authentication) {
-        return ResponseEntity.ok(userService.finAllUsersExceptSelf(authentication));
+        return ResponseEntity.ok(userService.findAllUsersExceptSelf(authentication));
     }
 }

@@ -3,7 +3,12 @@ package com.akshay.chat_app.message;
 import com.akshay.chat_app.chat.Chat;
 import com.akshay.chat_app.chat.ChatRepository;
 import com.akshay.chat_app.file.FileService;
+import com.akshay.chat_app.file.FileUtils;
+import com.akshay.chat_app.notification.Notification;
+import com.akshay.chat_app.notification.NotificationService;
+import com.akshay.chat_app.notification.NotificationType;
 import jakarta.persistence.EntityNotFoundException;
+import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
@@ -42,7 +47,7 @@ public class MessageService {
                 .senderId(messageRequest.getSenderId())
                 .receiverId(messageRequest.getReceiverId())
                 .type(NotificationType.MESSAGE)
-                .chatName(chat.getTargetChatName(message.getSenderId()))
+                .chatName(chat.getChatName(message.getSenderId()))
                 .build();
 
         notificationService.sendNotification(messageRequest.getReceiverId(), notification);

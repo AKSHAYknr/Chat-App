@@ -31,7 +31,7 @@ public class UserMapper {
         return user;
     }
 
-    public Object toUserResponse(User user) {
+    public UserResponse toUserResponse(User user) {
         return UserResponse.builder()
                 .id(user.getId())
                 .firstName(user.getFirstName())
